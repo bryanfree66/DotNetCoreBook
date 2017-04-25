@@ -1,0 +1,9 @@
+c:\code\DealerServices\InventoryService\bin\Debug\netcoreapp1.1\InventoryService.deps.json
+c:\code\DealerServices\InventoryService\bin\Debug\netcoreapp1.1\InventoryService.runtimeconfig.json
+c:\code\DealerServices\InventoryService\bin\Debug\netcoreapp1.1\InventoryService.runtimeconfig.dev.json
+c:\code\DealerServices\InventoryService\bin\Debug\netcoreapp1.1\InventoryService.dll
+c:\code\DealerServices\InventoryService\bin\Debug\netcoreapp1.1\InventoryService.pdb
+c:\code\DealerServices\InventoryService\obj\Debug\netcoreapp1.1\InventoryService.AssemblyInfo.cs
+c:\code\DealerServices\InventoryService\obj\Debug\netcoreapp1.1\InventoryService.dll
+c:\code\DealerServices\InventoryService\obj\Debug\netcoreapp1.1\InventoryService.pdb
+C:\code\DealerServices\InventoryService\obj\Debug\netcoreapp1.1\InventoryService.csprojResolveAssemblyReference.cache
