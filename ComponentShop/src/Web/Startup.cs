@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Common.Identity;
+using Web.Data;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace Web
@@ -28,7 +29,7 @@ namespace Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ComponentShopContext>(options =>
+            services.AddDbContext<InventoryContext>(options =>
             {
                 try
                 {
@@ -73,17 +74,22 @@ namespace Web
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Inventory/Error");
             }
 
             app.UseStaticFiles();
+            app.UseIdentity();
 
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Inventory}/{action=Index}/{id?}");
             });
+
+            //Seed Data
+            InventoryContextSeed.SeedAsync(app, loggerFactory)
+            .Wait();
         }
     }
 }

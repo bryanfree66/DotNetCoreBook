@@ -1,11 +1,11 @@
 using Web.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Web
+namespace Web.Data
 {
-    public class ComponentShopContext:DbContext
+    public class InventoryContext:DbContext
     {
-        public ComponentShopContext(DbContextOptions<ComponentShopContext> options)
+        public InventoryContext(DbContextOptions<InventoryContext> options)
         : base(options)
         {}
 
