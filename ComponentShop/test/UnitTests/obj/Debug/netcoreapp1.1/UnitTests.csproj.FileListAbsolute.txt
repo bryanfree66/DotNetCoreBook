@@ -11,3 +11,4 @@ C:\code\DotNetCoreBook\ComponentShop\test\UnitTests\bin\Debug\netcoreapp1.1\Web.
 C:\code\DotNetCoreBook\ComponentShop\test\UnitTests\obj\Debug\netcoreapp1.1\UnitTests.AssemblyInfo.cs
 C:\code\DotNetCoreBook\ComponentShop\test\UnitTests\obj\Debug\netcoreapp1.1\UnitTests.dll
 C:\code\DotNetCoreBook\ComponentShop\test\UnitTests\obj\Debug\netcoreapp1.1\UnitTests.pdb
+C:\code\DotNetCoreBook\ComponentShop\test\UnitTests\obj\Debug\netcoreapp1.1\UnitTests.csprojResolveAssemblyReference.cache
