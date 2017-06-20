@@ -12,3 +12,5 @@ C:\code\DotNetCoreBook\ComponentShop\test\UnitTests\obj\Debug\netcoreapp1.1\Unit
 C:\code\DotNetCoreBook\ComponentShop\test\UnitTests\obj\Debug\netcoreapp1.1\UnitTests.dll
 C:\code\DotNetCoreBook\ComponentShop\test\UnitTests\obj\Debug\netcoreapp1.1\UnitTests.pdb
 C:\code\DotNetCoreBook\ComponentShop\test\UnitTests\obj\Debug\netcoreapp1.1\UnitTests.csprojResolveAssemblyReference.cache
+C:\code\DotNetCoreBook\ComponentShop\test\UnitTests\bin\Debug\netcoreapp1.1\Common.dll
+C:\code\DotNetCoreBook\ComponentShop\test\UnitTests\bin\Debug\netcoreapp1.1\Common.pdb

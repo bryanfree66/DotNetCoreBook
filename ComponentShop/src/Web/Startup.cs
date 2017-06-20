@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Npgsql.EntityFrameworkCore;
+using Common.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace Web
 {
@@ -24,15 +22,42 @@ namespace Web
             Configuration = builder.Build();
         }
 
+        private IServiceCollection _services;
         public IConfigurationRoot Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ComponentShopContext>(options => {
-                options.UseNpgsql(Configuration.GetConnectionString("ComponentShopPostgreSql"));
+            services.AddDbContext<ComponentShopContext>(options =>
+            {
+                try
+                {
+                    //options.UseInMemoryDatabase("ComponentShopPostgreSql");
+                    options.UseNpgsql(Configuration.GetConnectionString("ComponentShopConnection"));
+                }
+                catch (Exception ex )
+                {
+                    var message = ex.Message;
+                }                
             });
+
+            services.AddDbContext<AppIdentityDbContext>(options =>
+                //options.UseInMemoryDatabase("Identity"));
+                options.UseNpgsql(Configuration.GetConnectionString("IdentityConnection")));
+
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<AppIdentityDbContext>()
+                .AddDefaultTokenProviders();
+
+            services.AddMemoryCache();
+            //services.AddScoped<ICatalogService, CachedCatalogService>();
+            //services.AddScoped<CatalogService>();
+            //services.Configure<CatalogSettings>(Configuration);
+            //services.AddSingleton<IImageService, LocalFileImageService>();
+            //services.AddScoped(typeof(IAppLogger<>), typeof(LoggerAdapter<>));
             services.AddMvc();
+
+            _services = services;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

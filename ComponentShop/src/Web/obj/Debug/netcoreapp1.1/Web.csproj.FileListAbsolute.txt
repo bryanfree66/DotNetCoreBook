@@ -7,3 +7,5 @@ C:\code\DotNetCoreBook\ComponentShop\src\Web\obj\Debug\netcoreapp1.1\Web.Assembl
 C:\code\DotNetCoreBook\ComponentShop\src\Web\obj\Debug\netcoreapp1.1\Web.dll
 C:\code\DotNetCoreBook\ComponentShop\src\Web\obj\Debug\netcoreapp1.1\Web.pdb
 C:\code\DotNetCoreBook\ComponentShop\src\Web\obj\Debug\netcoreapp1.1\Web.csprojResolveAssemblyReference.cache
+C:\code\DotNetCoreBook\ComponentShop\src\Web\bin\Debug\netcoreapp1.1\Common.dll
+C:\code\DotNetCoreBook\ComponentShop\src\Web\bin\Debug\netcoreapp1.1\Common.pdb
