@@ -1,0 +1,13 @@
+C:\code\DotNetCoreBook\ComponentShop\test\UnitTests\bin\Debug\netcoreapp1.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\code\DotNetCoreBook\ComponentShop\test\UnitTests\bin\Debug\netcoreapp1.1\xunit.runner.utility.netstandard15.dll
+C:\code\DotNetCoreBook\ComponentShop\test\UnitTests\bin\Debug\netcoreapp1.1\xunit.runner.reporters.netstandard15.dll
+C:\code\DotNetCoreBook\ComponentShop\test\UnitTests\bin\Debug\netcoreapp1.1\UnitTests.deps.json
+C:\code\DotNetCoreBook\ComponentShop\test\UnitTests\bin\Debug\netcoreapp1.1\UnitTests.runtimeconfig.json
+C:\code\DotNetCoreBook\ComponentShop\test\UnitTests\bin\Debug\netcoreapp1.1\UnitTests.runtimeconfig.dev.json
+C:\code\DotNetCoreBook\ComponentShop\test\UnitTests\bin\Debug\netcoreapp1.1\UnitTests.dll
+C:\code\DotNetCoreBook\ComponentShop\test\UnitTests\bin\Debug\netcoreapp1.1\UnitTests.pdb
+C:\code\DotNetCoreBook\ComponentShop\test\UnitTests\bin\Debug\netcoreapp1.1\Web.dll
+C:\code\DotNetCoreBook\ComponentShop\test\UnitTests\bin\Debug\netcoreapp1.1\Web.pdb
+C:\code\DotNetCoreBook\ComponentShop\test\UnitTests\obj\Debug\netcoreapp1.1\UnitTests.AssemblyInfo.cs
+C:\code\DotNetCoreBook\ComponentShop\test\UnitTests\obj\Debug\netcoreapp1.1\UnitTests.dll
+C:\code\DotNetCoreBook\ComponentShop\test\UnitTests\obj\Debug\netcoreapp1.1\UnitTests.pdb
