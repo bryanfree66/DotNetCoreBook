@@ -1,9 +1,8 @@
-namespace Web.Models
+namespace Web.ViewModels
 {
     public class ComponentType
     {
         public int Id {get;set;}
-        public string TypeName{get;set;}
-        public string Description {get;set;}
+        public string Type{get;set;}
     }
 }

@@ -34,7 +34,7 @@ namespace Web
                 try
                 {
                     //options.UseInMemoryDatabase("ComponentShopPostgreSql");
-                    options.UseNpgsql(Configuration.GetConnectionString("ComponentShopConnection"));
+                    options.UseNpgsql(Configuration.GetConnectionString("ComponentShopConnection"), b => b.MigrationsAssembly("Web"));
                 }
                 catch (Exception ex )
                 {
@@ -51,6 +51,7 @@ namespace Web
                 .AddDefaultTokenProviders();
 
             services.AddMemoryCache();
+
             //services.AddScoped<ICatalogService, CachedCatalogService>();
             //services.AddScoped<CatalogService>();
             //services.Configure<CatalogSettings>(Configuration);

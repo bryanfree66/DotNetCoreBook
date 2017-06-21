@@ -2,7 +2,10 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Logging;
-using Web.Data;
+using Web.ViewModels;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace Web.Data
 {
@@ -16,32 +19,23 @@ namespace Web.Data
                 var context = (InventoryContext)applicationBuilder
                     .ApplicationServices.GetService(typeof(InventoryContext));
 
-                // TODO: Only run this if using a real database
-                // context.Database.Migrate();
+                context.Database.Migrate();
 
-                // if (!context.CatalogBrands.Any())
-                // {
-                //    context.CatalogBrands.AddRange(
-                //        GetPreconfiguredCatalogBrands());
-                //
-                //    await context.SaveChangesAsync();
-                //}
+                if (!context.ComponentTypes.Any())
+                {
+                    context.ComponentTypes.AddRange(
+                        GetPreconfiguredComponentTypes());
 
-                //if (!context.CatalogTypes.Any())
-                //{
-                //    context.CatalogTypes.AddRange(
-                //        GetPreconfiguredCatalogTypes());
+                    await context.SaveChangesAsync();
+                }
 
-                //    await context.SaveChangesAsync();
-                //}
+                if (!context.Components.Any())
+                {
+                    context.Components.AddRange(
+                        GetPreconfiguredComponents());
 
-                //if (!context.CatalogItems.Any())
-                //{
-                //    context.CatalogItems.AddRange(
-                //        GetPreconfiguredItems());
-
-                 //   await context.SaveChangesAsync();
-                //}
+                    await context.SaveChangesAsync();
+                }
             }
             catch (Exception ex)
             {
@@ -55,46 +49,35 @@ namespace Web.Data
             }
         }
 
-        //static IEnumerable<CatalogBrand> GetPreconfiguredCatalogBrands()
-        // {
-        //    return new List<CatalogBrand>()
-        //    {
-         //       new CatalogBrand() { Brand = "Azure"},
-         //       new CatalogBrand() { Brand = ".NET" },
-         //       new CatalogBrand() { Brand = "Visual Studio" },
-         //       new CatalogBrand() { Brand = "SQL Server" }, 
-         //       new CatalogBrand() { Brand = "Other" }
-         //   };
-        //}
+        static IEnumerable<ComponentType> GetPreconfiguredComponentTypes()
+        {
+            return new List<ComponentType>()
+            {
+               new ComponentType() { Type="Microcontroller"},
+               new ComponentType() { Type="System on Chip" },
+               new ComponentType() { Type="Basic Computer" },
+               new ComponentType() { Type="Digital Signal Processor" },
+               new ComponentType() { Type="Other" }
+            };
+        }
 
-        // static IEnumerable<CatalogType> GetPreconfiguredCatalogTypes()
-        // {
-        //     return new List<CatalogType>()
-        //     {
-        //         new CatalogType() { Type = "Mug"},
-        //         new CatalogType() { Type = "T-Shirt" },
-        //         new CatalogType() { Type = "Sheet" },
-        //         new CatalogType() { Type = "USB Memory Stick" }
-        //     };
-        // }
-
-        // static IEnumerable<CatalogItem> GetPreconfiguredItems()
-        // {
-        //     return new List<CatalogItem>()
-        //     {
-        //         new CatalogItem() { CatalogTypeId=2,CatalogBrandId=2, Description = ".NET Bot Black Sweatshirt", Name = ".NET Bot Black Sweatshirt", Price = 19.5M, PictureUri = "http://catalogbaseurltobereplaced/catalog/pic/1" },
-        //         new CatalogItem() { CatalogTypeId=1,CatalogBrandId=2, Description = ".NET Black & White Mug", Name = ".NET Black & White Mug", Price= 8.50M, PictureUri = "http://catalogbaseurltobereplaced/catalog/pic/2" },
-        //         new CatalogItem() { CatalogTypeId=2,CatalogBrandId=5, Description = "Prism White T-Shirt", Name = "Prism White T-Shirt", Price = 12, PictureUri = "http://catalogbaseurltobereplaced/catalog/pic/3" },
-        //         new CatalogItem() { CatalogTypeId=2,CatalogBrandId=2, Description = ".NET Foundation Sweatshirt", Name = ".NET Foundation Sweatshirt", Price = 12, PictureUri = "http://catalogbaseurltobereplaced/catalog/pic/4" },
-        //         new CatalogItem() { CatalogTypeId=3,CatalogBrandId=5, Description = "Roslyn Red Sheet", Name = "Roslyn Red Sheet", Price = 8.5M, PictureUri = "http://catalogbaseurltobereplaced/catalog/pic/5" },
-        //         new CatalogItem() { CatalogTypeId=2,CatalogBrandId=2, Description = ".NET Blue Sweatshirt", Name = ".NET Blue Sweatshirt", Price = 12, PictureUri = "http://catalogbaseurltobereplaced/catalog/pic/6" },
-        //         new CatalogItem() { CatalogTypeId=2,CatalogBrandId=5, Description = "Roslyn Red T-Shirt", Name = "Roslyn Red T-Shirt", Price = 12, PictureUri = "http://catalogbaseurltobereplaced/catalog/pic/7"  },
-        //         new CatalogItem() { CatalogTypeId=2,CatalogBrandId=5, Description = "Kudu Purple Sweatshirt", Name = "Kudu Purple Sweatshirt", Price = 8.5M, PictureUri = "http://catalogbaseurltobereplaced/catalog/pic/8" },
-        //         new CatalogItem() { CatalogTypeId=1,CatalogBrandId=5, Description = "Cup<T> White Mug", Name = "Cup<T> White Mug", Price = 12, PictureUri = "http://catalogbaseurltobereplaced/catalog/pic/9" },
-        //         new CatalogItem() { CatalogTypeId=3,CatalogBrandId=2, Description = ".NET Foundation Sheet", Name = ".NET Foundation Sheet", Price = 12, PictureUri = "http://catalogbaseurltobereplaced/catalog/pic/10" },
-        //         new CatalogItem() { CatalogTypeId=3,CatalogBrandId=2, Description = "Cup<T> Sheet", Name = "Cup<T> Sheet", Price = 8.5M, PictureUri = "http://catalogbaseurltobereplaced/catalog/pic/11" },
-        //         new CatalogItem() { CatalogTypeId=2,CatalogBrandId=5, Description = "Prism White TShirt", Name = "Prism White TShirt", Price = 12, PictureUri = "http://catalogbaseurltobereplaced/catalog/pic/12" }
-        //     };
-        // }
+        static IEnumerable<Component> GetPreconfiguredComponents()
+        {
+            return new List<Component>()
+             {
+                 new Component() { Type=1, Name="Arduino Uno", Manufacturer="Sunflower", Quantity=10, UnitPrice = 22.5M },
+                 new Component() { Type=1, Name="Arduino Mega", Manufacturer="Sunflower", Quantity=10, UnitPrice= 35.50M },
+                 new Component() { Type=1, Name="Arduino Nano", Manufacturer="Sunflower", Quantity=10, UnitPrice = 12.25M },
+                 new Component() { Type=1, Name="Arduino Dou", Manufacturer="Sunflower", Quantity=10, UnitPrice = 30.75M },
+                 new Component() { Type=2, Name="Edison", Manufacturer="Intel", Quantity=10, UnitPrice = 101.5M },
+                 new Component() { Type=2, Name="ARM Cortex-M", Manufacturer="Cypress Semiconductor", Quantity=10, UnitPrice = 89.55M },
+                 new Component() { Type=3, Name="Raspberry Pi 3 Model B", Manufacturer="Raspberry Pi Foundation",  Quantity=10, UnitPrice = 35.8M  },
+                 new Component() { Type=3, Name="Raspberry Pi Zero W", Manufacturer="Raspberry Pi Foundation", Quantity=10, UnitPrice = 27.4M },
+                 new Component() { Type=3, Name="Raspberry Pi 2 Model B", Manufacturer="Raspberry Pi Foundation", Quantity=10, UnitPrice = 30.75M },
+                 new Component() { Type=3, Name="Raspberry Pi Zero", Manufacturer="Raspberry Pi Foundation", Quantity=10, UnitPrice = 25.45M },
+                 new Component() { Type=4, Name="DSP 66AK2x", Manufacturer="Texas Insturments", Quantity=10, UnitPrice = 57.8M },
+                 new Component() { Type=4, Name="DSP OMAP-L1x", Manufacturer="", Quantity=10, UnitPrice = 44.25M }
+             };
+        }
     }
 }
