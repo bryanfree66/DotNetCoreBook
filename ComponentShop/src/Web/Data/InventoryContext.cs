@@ -18,13 +18,6 @@ namespace Web.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<ComponentType>().HasKey(m => m.Id);
-            builder.Entity<Component>().HasKey(m => m.Id);
-
-            // shadow properties
-            builder.Entity<ComponentType>().Property<DateTime>("UpdatedTimestamp");
-            builder.Entity<Component>().Property<DateTime>("UpdatedTimestamp");
-
             base.OnModelCreating(builder);
         }
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
